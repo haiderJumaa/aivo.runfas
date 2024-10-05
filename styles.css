@@ -1,0 +1,173 @@
+@import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap');
+
+:root {
+    --primary-color: #0a192f;
+    --secondary-color: #172a45;
+    --text-color: #8892b0;
+    --highlight-color: #64ffda;
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Tajawal', sans-serif;
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    overflow-x: hidden;
+}
+
+.stars, .twinkling {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.stars {
+    background: #000 url('stars.png') repeat top center;
+    z-index: -2;
+}
+
+.twinkling {
+    background: transparent url('twinkling.png') repeat top center;
+    z-index: -1;
+    animation: move-twink-back 200s linear infinite;
+}
+
+@keyframes move-twink-back {
+    from {background-position: 0 0;}
+    to {background-position: -10000px 5000px;}
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 40px;
+    background-color: rgba(23, 42, 69, 0.8);
+    box-shadow: 0 0 20px rgba(100, 255, 218, 0.1);
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    transform: translateY(50px);
+    opacity: 0;
+    animation: fadeInUp 1s ease-out forwards;
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.logo {
+    width: 100px;
+    height: auto;
+    margin: 0 10px;
+    transition: transform 0.3s ease;
+}
+
+.logo:hover {
+    transform: scale(1.1);
+}
+
+h1, h2 {
+    color: var(--highlight-color);
+}
+
+.glow {
+    animation: glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+    from {
+        text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px var(--highlight-color), 0 0 20px var(--highlight-color);
+    }
+    to {
+        text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px var(--highlight-color), 0 0 40px var(--highlight-color);
+    }
+}
+
+.certificate-details, .course-details, .appreciation {
+    margin-bottom: 30px;
+    padding: 20px;
+    background-color: rgba(10, 25, 47, 0.5);
+    border-radius: 5px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.certificate-details:hover, .course-details:hover, .appreciation:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(100, 255, 218, 0.2);
+}
+
+.student-name, .certificate-code {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.social-links {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.social-icon {
+    display: inline-block;
+    margin: 0 15px;
+    color: var(--highlight-color);
+    font-size: 24px;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.social-icon:hover {
+    transform: translateY(-5px);
+    color: #fff;
+}
+
+@media (max-width: 600px) {
+    .container {
+        padding: 20px;
+    }
+
+    .logo {
+        width: 80px;
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+
+    .student-name, .certificate-code {
+        font-size: 16px;
+    }
+}
+/* تنسيق قسم التواصل الاجتماعي */
+.footer {
+    background-color: #003366;
+    color: white;
+    padding: 10px;
+    margin-top: 40px;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.social-icon {
+    width: 40px;
+    transition: transform 0.3s ease;
+}
+
+.social-icon:hover {
+    transform: scale(1.2);
+}
